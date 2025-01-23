@@ -19,6 +19,19 @@ public class Task {
 		this.updatedAt = LocalDateTime.now();	
 	}
 	
+	private Task(int id, String description, Status status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		this.id = id;
+		this.description = description;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public Task fromJSON() {
+		
+		return new Task("");
+	}
+	
 	public String toJSON() {
 	    return "{\"id\":\"" + id +
 	            "\",\"description\":\"" + description +
