@@ -3,7 +3,7 @@ package toDoApp;
 import java.time.LocalDateTime;
 
 public class Task {
-	private static int UID = 99;
+	private static int Last_Used_Id = 99;
 	
 	private int id;
 	private String description;
@@ -14,7 +14,7 @@ public class Task {
 	private Task() {}
 		
 	public Task(String description) {
-		this.id = ++UID;
+		this.id = ++Last_Used_Id;
 		this.description = description;
 		this.status = Status.todo;
 		this.createdAt = LocalDateTime.now();
@@ -33,6 +33,9 @@ public class Task {
 		newTask.status = Status.valueOf(jsonValues[2].split(":")[1].trim());
 		newTask.createdAt = LocalDateTime.parse(jsonValues[3].split("[a-z]:")[1].trim());
 		newTask.updatedAt = LocalDateTime.parse(jsonValues[4].split("[a-z]:")[1].trim());
+		if(newTask.id > Last_Used_Id) {
+			Last_Used_Id = newTask.id;
+		}
 		return newTask;
 	}
 	

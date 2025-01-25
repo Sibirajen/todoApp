@@ -7,26 +7,30 @@ import java.util.List;
 
 public class TaskManager {
 	private final Path FILE_PATH = Path.of("tasks.json");
-	private List<Task> storedTasks = new ArrayList<>();
+	private List<Task> storedTasks;
 	
 	public TaskManager() {
 		this.storedTasks = loadTasks();
 	}
 
 	private List<Task> loadTasks() {
+		List<Task> tasks = new ArrayList<>();
 		if(Files.exists(FILE_PATH)) {
 			try {
 				String[] jsonArray = Files.readString(FILE_PATH)
 						.replace("[","").replace("]","").split("},");
-				for(String json: jsonArray) {
-					storedTasks.add(Task.fromJSON(json));
+				if(jsonArray.length >= 0) {
+					for(String json: jsonArray) {
+						tasks.add(Task.fromJSON(json));
+					}
+					return tasks;
 				}
 			}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return new ArrayList<>();
+		return tasks;
 	}
 	
 //	# Output: Task added successfully (ID: 1)
