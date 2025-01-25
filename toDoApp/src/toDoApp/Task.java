@@ -11,6 +11,8 @@ public class Task {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 	
+	private Task() {}
+		
 	public Task(String description) {
 		this.id = ++UID;
 		this.description = description;
@@ -19,24 +21,26 @@ public class Task {
 		this.updatedAt = LocalDateTime.now();	
 	}
 	
-	private Task(int id, String description, Status status, LocalDateTime createdAt, LocalDateTime updatedAt) {
-		this.id = id;
-		this.description = description;
-		this.status = status;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+	public int getId() {
+		return id;
 	}
 
-	public Task fromJSON() {
-		
-		return new Task("");
+	public static Task fromJSON(String json) {
+		String[] jsonValues = json.replace("{", "").replace("}", "").replace("\"", "").split(",");
+		Task newTask = new Task();
+		newTask.id = Integer.parseInt(jsonValues[0].split(":")[1].trim());
+		newTask.description = jsonValues[1].split(":")[1].trim();
+		newTask.status = Status.valueOf(jsonValues[2].split(":")[1].trim());
+		newTask.createdAt = LocalDateTime.parse(jsonValues[3].split("[a-z]:")[1].trim());
+		newTask.updatedAt = LocalDateTime.parse(jsonValues[4].split("[a-z]:")[1].trim());
+		return newTask;
 	}
 	
 	public String toJSON() {
-	    return "{\"id\":\"" + id +
-	            "\",\"description\":\"" + description +
-	            "\",\"status\":\"" + status +
-	            "\",\"createdAt\":\"" + createdAt +
-	            "\",\"updatedAt\":\"" + updatedAt + "\"}";
+	    return "\t{\n\t\t\"id\":\"" + id +
+	            "\",\n\t\t\"description\":\"" + description +
+	            "\",\n\t\t\"status\":\"" + status +
+	            "\",\n\t\t\"createdAt\":\"" + createdAt +
+	            "\",\n\t\t\"updatedAt\":\"" + updatedAt + "\"\n\t}";
 	}
 }

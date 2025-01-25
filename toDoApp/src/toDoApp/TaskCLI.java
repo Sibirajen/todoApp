@@ -17,9 +17,13 @@ public class TaskCLI {
 					System.out.println("Usage: TaskCLI add <description>");
 					return;
 				}
-				// add the task
+				taskManager.add(args[1]);
+				break;
+			default:
+				System.out.println("Usage: TaskCLI <command> [arguments]");
 				break;
 		}
+		taskManager.saveTask();
 	}
 
 }
