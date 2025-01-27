@@ -41,7 +41,10 @@ public class SimArgs {
 				{"list","todo"},
 				{"list","in-progress"},
 				{"list","done"},
-				{"list","something"}
+				{"list","something"},
+//				help command
+				{"help"},
+				{"help","something"}
 			   };
 		for (int i = 0; i < cmd.length; i++) {
 			TaskCLI.main(cmd[i]);
