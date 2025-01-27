@@ -21,7 +21,15 @@ public class SimArgs {
 //				delete command
 				{"delete"},
 				{"delete","NA"},
-				{"delete","103"}
+				{"delete","103"},
+//				mark-in-progress command
+				{"mark-in-progress"},
+				{"mark-in-progress","NA"},
+				{"mark-in-progress","102"},
+//				mard-done
+				{"mark-done"},
+				{"mark-done","NA"},
+				{"mark-done","101"}
 			   };
 		for (int i = 0; i < cmd.length; i++) {
 			TaskCLI.main(cmd[i]);

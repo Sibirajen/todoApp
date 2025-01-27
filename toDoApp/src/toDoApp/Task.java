@@ -29,6 +29,16 @@ public class Task {
 		this.description = description;
 		this.updatedAt = LocalDateTime.now();
 	}
+	
+	public void markInProgress() {
+		this.status = Status.inProgress;
+		this.updatedAt = LocalDateTime.now();
+	}
+	
+	public void markDone() {
+		this.status = Status.done;
+		this.updatedAt = LocalDateTime.now();
+	}
 
 	public static Task fromJSON(String json) {
 		String[] jsonValues = json.replace("{", "").replace("}", "").replace("\"", "").split(",");

@@ -65,6 +65,28 @@ public class TaskManager {
 		System.out.println("ID not found");
 	}
 	
+	public void markInProgress(int id) {
+		for(Task currTask: storedTasks) {
+			if(currTask.getId() == id) {
+				currTask.markInProgress();
+				System.out.println("Task marked for in-progress successfully");
+				return;
+			}
+		}
+		System.out.println("ID not found");
+	}
+	
+	public void markDone(int id) {
+		for(Task currTask: storedTasks) {
+			if(currTask.getId() == id) {
+				currTask.markDone();
+				System.out.println("Task marked done successfully");
+				return;
+			}
+		}
+		System.out.println("ID not found");
+	}
+	
 	public void saveTask() {
 		try {
 			StringBuilder jsonStr = new StringBuilder("[\n");
