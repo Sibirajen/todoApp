@@ -21,7 +21,9 @@ public class TaskManager {
 						.replace("[","").replace("]","").split("},");
 				if(jsonArray.length >= 0) {
 					for(String json: jsonArray) {
-						tasks.add(Task.fromJSON(json));
+						if(!json.isBlank()) {
+							tasks.add(Task.fromJSON(json));
+						}
 					}
 					return tasks;
 				}
