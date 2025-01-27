@@ -35,7 +35,6 @@ public class TaskManager {
 		return tasks;
 	}
 	
-//	# Output: Task added successfully (ID: 1)
 	public void add(String description) {
 		Task newTask = new Task(description);
 		storedTasks.add(newTask);
