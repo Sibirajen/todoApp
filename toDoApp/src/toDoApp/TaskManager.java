@@ -87,6 +87,16 @@ public class TaskManager {
 		System.out.println("ID not found");
 	}
 	
+	public void list() {
+		if(storedTasks.size() == 0) {
+			System.out.println("No tasks is currently present");
+			return;
+		}
+		for(Task currTask: storedTasks) {
+			System.out.println(currTask);
+		}
+	}
+	
 	public void saveTask() {
 		try {
 			StringBuilder jsonStr = new StringBuilder("[\n");

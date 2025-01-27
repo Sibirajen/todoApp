@@ -61,4 +61,10 @@ public class Task {
 	            "\",\n\t\t\"createdAt\":\"" + createdAt +
 	            "\",\n\t\t\"updatedAt\":\"" + updatedAt + "\"\n\t}";
 	}
+
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", description=" + description + ", status=" + status + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + "]";
+	}
 }

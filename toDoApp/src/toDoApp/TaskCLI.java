@@ -71,6 +71,11 @@ public class TaskCLI {
 					System.out.println("ID needs to be a number");
 				}
 				break;
+			case "list":
+				if(args.length == 1) {
+					taskManager.list();
+				}
+				break;
 			default:
 				System.out.println("Usage: TaskCLI <command> [arguments]");
 				break;
