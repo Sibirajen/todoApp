@@ -20,8 +20,7 @@ public class TaskCLI {
 			return;
 		}
 		
-		String command = args[0];
-		switch(command) {
+		switch(args[0]) {
 			case "add":{
 				if(args.length < 2) {
 					System.out.println("Usage: TaskCLI add <description>");
@@ -77,6 +76,21 @@ public class TaskCLI {
 			case "list":{
 				if(args.length == 1) {
 					taskManager.list();
+					return;
+				}
+				switch(args[1]) {
+					case "todo":
+						taskManager.list(Status.todo);
+						break;
+					case "in-progress":
+						taskManager.list(Status.inProgress);
+						break;
+					case "done":
+						taskManager.list(Status.done);
+						break;
+					default:
+						System.out.println("Usage: TaskCLI list <command>");
+						break;
 				}
 				break;
 			}

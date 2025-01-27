@@ -96,6 +96,18 @@ public class TaskManager {
 		}
 	}
 	
+	public void list(Status staus) {
+		if(storedTasks.size() == 0) {
+			System.out.println("No tasks is currently present");
+			return;
+		}
+		for(Task currTask: storedTasks) {
+			if(currTask.getStatus() == staus) {
+				System.out.println(currTask);
+			}
+		}
+	}
+	
 	public void saveTask() {
 		try {
 			StringBuilder jsonStr = new StringBuilder("[\n");

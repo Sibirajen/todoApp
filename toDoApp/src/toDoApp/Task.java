@@ -40,6 +40,10 @@ public class Task {
 		this.updatedAt = LocalDateTime.now();
 	}
 
+	public Status getStatus() {
+		return status;
+	}
+
 	public static Task fromJSON(String json) {
 		String[] jsonValues = json.replace("{", "").replace("}", "").replace("\"", "").split(",");
 		Task newTask = new Task();

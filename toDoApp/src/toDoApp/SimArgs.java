@@ -6,7 +6,12 @@ public class SimArgs {
 		String[][] cmd = {
 //				empty argument
 				{},
+//				list command
 				{"list"},
+				{"list"},
+				{"list","todo"},
+				{"list","in-progress"},
+				{"list","done"},
 //				add command
 				{"add"},
 				{"add", "study"},
@@ -32,7 +37,11 @@ public class SimArgs {
 				{"mark-done","NA"},
 				{"mark-done","101"},
 //				list all tasks command
-				{"list"}
+				{"list"},
+				{"list","todo"},
+				{"list","in-progress"},
+				{"list","done"},
+				{"list","something"}
 			   };
 		for (int i = 0; i < cmd.length; i++) {
 			TaskCLI.main(cmd[i]);
