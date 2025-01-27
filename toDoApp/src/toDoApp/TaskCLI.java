@@ -19,6 +19,32 @@ public class TaskCLI {
 				}
 				taskManager.add(args[1]);
 				break;
+			case "update":
+				if(args.length < 3) {
+					System.out.println("Usage: TaskCLI update ID <description>");
+					return;
+				}
+				try {
+					int id = Integer.parseInt(args[1]);
+					taskManager.update(id,args[2]);
+				}
+				catch(Exception e) {
+					System.out.println("ID needs to be a number");
+				}
+				break;
+			case "delete":
+				if(args.length < 2) {
+					System.out.println("Usage: TaskCLI delete ID");
+					return;
+				}
+				try {
+					int id = Integer.parseInt(args[1]);
+					taskManager.delete(id);
+				}
+				catch(Exception e) {
+					System.out.println("ID needs to be a number");
+				}
+				break;
 			default:
 				System.out.println("Usage: TaskCLI <command> [arguments]");
 				break;

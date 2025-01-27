@@ -25,6 +25,11 @@ public class Task {
 		return id;
 	}
 
+	public void update(String description) {
+		this.description = description;
+		this.updatedAt = LocalDateTime.now();
+	}
+
 	public static Task fromJSON(String json) {
 		String[] jsonValues = json.replace("{", "").replace("}", "").replace("\"", "").split(",");
 		Task newTask = new Task();

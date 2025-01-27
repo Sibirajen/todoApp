@@ -42,6 +42,29 @@ public class TaskManager {
 		System.out.println("Task added successfully (ID: " + newTask.getId() + ")");
 	}
 	
+	public void update(int id,String description) {
+		for(Task currTask: storedTasks) {
+			if(currTask.getId() == id) {
+				currTask.update(description);
+				System.out.println("Task updated successfully");
+				return;
+			}
+		}
+		System.out.println("ID not found");
+	}
+	
+	public void delete(int id) {
+		for(int i=0;i<storedTasks.size();i++) {
+			Task currTask = storedTasks.get(i);
+			if(currTask.getId() == id) {
+				storedTasks.remove(i);
+				System.out.println("Task deleted successfully");
+				return;
+			}
+		}
+		System.out.println("ID not found");
+	}
+	
 	public void saveTask() {
 		try {
 			StringBuilder jsonStr = new StringBuilder("[\n");
