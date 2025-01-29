@@ -1,6 +1,7 @@
 package toDoApp;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Task {
 	private static int Last_Used_Id = 99;
@@ -8,8 +9,10 @@ public class Task {
 	private int id;
 	private String description;
 	private Status status;
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
+	private String createdAt;
+	private String updatedAt;
+	
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/mm/yyyy hh:mm:ss a");
 	
 	private Task() {}
 		
@@ -17,8 +20,8 @@ public class Task {
 		this.id = ++Last_Used_Id;
 		this.description = description;
 		this.status = Status.todo;
-		this.createdAt = LocalDateTime.now();
-		this.updatedAt = LocalDateTime.now();	
+		this.createdAt = LocalDateTime.now().format(formatter);
+		this.updatedAt = LocalDateTime.now().format(formatter);
 	}
 	
 	public int getId() {
@@ -27,17 +30,17 @@ public class Task {
 
 	public void update(String description) {
 		this.description = description;
-		this.updatedAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now().format(formatter);
 	}
 	
 	public void markInProgress() {
 		this.status = Status.inProgress;
-		this.updatedAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now().format(formatter);
 	}
 	
 	public void markDone() {
 		this.status = Status.done;
-		this.updatedAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now().format(formatter);
 	}
 
 	public Status getStatus() {
@@ -50,8 +53,8 @@ public class Task {
 		newTask.id = Integer.parseInt(jsonValues[0].split(":")[1].trim());
 		newTask.description = jsonValues[1].split(":")[1].trim();
 		newTask.status = Status.valueOf(jsonValues[2].split(":")[1].trim());
-		newTask.createdAt = LocalDateTime.parse(jsonValues[3].split("[a-z]:")[1].trim());
-		newTask.updatedAt = LocalDateTime.parse(jsonValues[4].split("[a-z]:")[1].trim());
+		newTask.createdAt = jsonValues[3].split("[a-z]:")[1].trim();
+		newTask.updatedAt = jsonValues[4].split("[a-z]:")[1].trim();
 		if(newTask.id > Last_Used_Id) {
 			Last_Used_Id = newTask.id;
 		}
