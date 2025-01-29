@@ -68,7 +68,13 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", description=" + description + ", status=" + status + ", createdAt=" + createdAt
-				+ ", updatedAt=" + updatedAt + "]";
+	    return String.format(
+	        "+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n" +
+	        "| %-4s | %-40s | %-12s | %-30s | %-30s |\n" ,
+	        id, description, status, createdAt, updatedAt
+	    );
 	}
+
+
+
 }

@@ -6,7 +6,7 @@ public class TaskCLI {
 	    System.out.println("TaskCLI Command-Line Usage:");
 	    System.out.println();
 	    System.out.println("General Usage:");
-	    System.out.println("  TaskCLI <command> [arguments]");
+	    System.out.println("  toDoApp.TaskCLI <command> [arguments]");
 	    System.out.println();
 	    System.out.println("Commands:");
 	    System.out.println("  add <description>              - Add a new task with the specified description.");
@@ -20,13 +20,13 @@ public class TaskCLI {
 	    System.out.println("  list done                      - List tasks with 'Done' status.");
 	    System.out.println();
 	    System.out.println("Examples:");
-	    System.out.println("  TaskCLI add \"Complete project report\"");
-	    System.out.println("  TaskCLI update 1 \"Update documentation\"");
-	    System.out.println("  TaskCLI delete 2");
-	    System.out.println("  TaskCLI mark-in-progress 3");
-	    System.out.println("  TaskCLI mark-done 4");
-	    System.out.println("  TaskCLI list");
-	    System.out.println("  TaskCLI list todo");
+	    System.out.println("  toDoApp.TaskCLI add \"Complete project report\"");
+	    System.out.println("  toDoApp.TaskCLI update 1 \"Update documentation\"");
+	    System.out.println("  toDoApp.TaskCLI delete 2");
+	    System.out.println("  toDoApp.TaskCLI mark-in-progress 3");
+	    System.out.println("  toDoApp.TaskCLI mark-done 4");
+	    System.out.println("  toDoApp.TaskCLI list");
+	    System.out.println("  toDoApp.TaskCLI list todo");
 	}
 	
 	public static int getNumber(String number) {
@@ -43,16 +43,16 @@ public class TaskCLI {
 		TaskManager taskManager = new TaskManager();
 		
 		if(args.length < 1) {
-			System.out.println("Usage: TaskCLI <command> [arguments]");
-			System.out.println("Use \"TaskCLI help\" to learn more");
+			System.out.println("Usage:toDoApp.TaskCLI <command> [arguments]");
+			System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 			return;
 		}
 		
 		switch(args[0]) {
 			case "add":{
 				if(args.length < 2) {
-					System.out.println("Usage: TaskCLI add <description>");
-					System.out.println("Use \"TaskCLI help\" to learn more");
+					System.out.println("Usage: toDoApp.TaskCLI add <description>");
+					System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 					return;
 				}
 				taskManager.add(args[1]);
@@ -60,8 +60,8 @@ public class TaskCLI {
 			}
 			case "update":{
 				if(args.length < 3) {
-					System.out.println("Usage: TaskCLI update ID <description>");
-					System.out.println("Use \"TaskCLI help\" to learn more");
+					System.out.println("Usage: toDoApp.TaskCLI update ID <description>");
+					System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 					return;
 				}
 				int id = getNumber(args[1]);
@@ -72,8 +72,8 @@ public class TaskCLI {
 			}
 			case "delete":{
 				if(args.length < 2) {
-					System.out.println("Usage: TaskCLI delete ID");
-					System.out.println("Use \"TaskCLI help\" to learn more");
+					System.out.println("Usage: toDoApp.TaskCLI delete ID");
+					System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 					return;
 				}
 				int id = getNumber(args[1]);
@@ -84,8 +84,8 @@ public class TaskCLI {
 			}
 			case "mark-in-progress":{
 				if(args.length < 2) {
-					System.out.println("Usage: TaskCLI mark-in-progress ID");
-					System.out.println("Use \"TaskCLI help\" to learn more");
+					System.out.println("Usage: toDoApp.TaskCLI mark-in-progress ID");
+					System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 					return;
 				}
 				int id = getNumber(args[1]);
@@ -96,8 +96,8 @@ public class TaskCLI {
 			}
 			case "mark-done":{
 				if(args.length < 2) {
-					System.out.println("Usage: TaskCLI mark-done ID");
-					System.out.println("Use \"TaskCLI help\" to learn more");
+					System.out.println("Usage: toDoApp.TaskCLI mark-done ID");
+					System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 					return;
 				}
 				int id = getNumber(args[1]);
@@ -122,8 +122,8 @@ public class TaskCLI {
 						taskManager.list(Status.done);
 						break;
 					default:
-						System.out.println("Usage: TaskCLI list <command>");
-						System.out.println("Use \"TaskCLI help\" to learn more");
+						System.out.println("Usage: toDoApp.TaskCLI list <command>");
+						System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 						break;
 				}
 				break;
@@ -133,12 +133,12 @@ public class TaskCLI {
 					printHelp();
 					return;
 				}
-				System.out.println("Usage: TaskCLI help");
+				System.out.println("Usage: toDoApp.TaskCLI help");
 				break;
 			}
 			default:{
-				System.out.println("Usage: TaskCLI <command> [arguments]");
-				System.out.println("Use \"TaskCLI help\" to learn more");
+				System.out.println("Usage: toDoApp.TaskCLI <command> [arguments]");
+				System.out.println("Use \"toDoApp.TaskCLI help\" to learn more");
 				break;
 			}
 		}

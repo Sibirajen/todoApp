@@ -91,9 +91,13 @@ public class TaskManager {
 			System.out.println("No tasks is currently present");
 			return;
 		}
+		System.out.printf("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n" +
+		        "| %-4s | %-40s | %-12s | %-30s | %-30s |\n" ,
+		        "ID", "Description", "Status", "Created Time", "Updated Time");
 		for(Task currTask: storedTasks) {
-			System.out.println(currTask);
+			System.out.print(currTask);
 		}
+		System.out.printf("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n");
 	}
 	
 	public void list(Status staus) {
@@ -101,11 +105,15 @@ public class TaskManager {
 			System.out.println("No tasks is currently present");
 			return;
 		}
+		System.out.printf("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n" +
+	        "| %-4s | %-40s | %-12s | %-30s | %-30s |\n" ,
+	        "ID", "Description", "Status", "Created Time", "Updated Time");
 		for(Task currTask: storedTasks) {
 			if(currTask.getStatus() == staus) {
-				System.out.println(currTask);
+				System.out.print(currTask);
 			}
 		}
+		System.out.printf("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n");
 	}
 	
 	public void saveTask() {
