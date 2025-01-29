@@ -16,6 +16,22 @@ TaskCLI is a simple command-line application designed for managing tasks efficie
   - Tasks in **In-Progress**
   - Tasks marked as **Done**.
 
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/Sibirajen/todoApp.git
+
+2. **Compile the source code:**
+    ```bash
+   javac TaskCLI.java Task.java TaskManager.java Status.java
+    
+3. **Run the application:**
+    ```bash
+   java toDoApp.TaskCLIApp <command> [arguments]
+   ```
+
 ## Usage
 
 ### General Syntax
@@ -41,64 +57,6 @@ TaskCLI <command> [arguments]
 ### Help Command
 
 If you enter an invalid command or need assistance, TaskCLI will display a help message with all available commands.
-
-## Examples
-
-1. **Add a Task**:
-
-   ```
-   TaskCLI add "Complete project report"
-   ```
-
-2. **Update a Task**:
-
-   ```
-   TaskCLI update 1 "Review team feedback"
-   ```
-
-3. **Delete a Task**:
-
-   ```
-   TaskCLI delete 2
-   ```
-
-4. **Mark a Task as In-Progress**:
-
-   ```
-   TaskCLI mark-in-progress 3
-   ```
-
-5. **Mark a Task as Done**:
-
-   ```
-   TaskCLI mark-done 4
-   ```
-
-6. **List All Tasks**:
-
-   ```
-   TaskCLI list
-   ```
-
-7. **List Tasks by Status**:
-
-   - To-Do:
-     ```
-     TaskCLI list todo
-     ```
-   - In-Progress:
-     ```
-     TaskCLI list in-progress
-     ```
-   - Done:
-     ```
-     TaskCLI list done
-     ```
-
-## Notes
-
-- The `ID` for tasks is a number automatically assigned when a task is created.
-- The task statuses available are **To-Do**, **In-Progress**, and **Done**.
 
 ## License
 
