@@ -46,9 +46,9 @@ public class SimArgs {
 				{"help"},
 				{"help","something"}
 			   };
-		for (int i = 0; i < cmd.length; i++) {
-			TaskCLI.main(cmd[i]);
-		}
+        for (String[] strings : cmd) {
+            TaskCLI.main(strings);
+        }
 	}
 
 }

@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class TaskManager {
 	private final Path FILE_PATH = Path.of("tasks.json");
 	private List<Task> storedTasks;
@@ -101,7 +102,7 @@ public class TaskManager {
 	}
 	
 	public void list(Status staus) {
-		if(storedTasks.size() == 0) {
+		if(storedTasks.isEmpty()) {
 			System.out.println("No tasks is currently present");
 			return;
 		}
@@ -113,7 +114,7 @@ public class TaskManager {
 				System.out.print(currTask);
 			}
 		}
-		System.out.printf("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n");
+		System.out.print("+------+------------------------------------------+--------------+--------------------------------+--------------------------------+\n");
 	}
 	
 	public void saveTask() {
